@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.myproject.mapper.BoardMapper">
+
+
+    <!-- 게시판 추가하기 -->
+    <insert id="insertBoard">
+        insert into hello_board (b_title,b_writer,b_detail,b_date) values(#{b_title},#{b_writer},#{b_detail},SYSDATE())
+
+    </insert>
+
+    <!--  게시판 카운트 -->
+    <select id="countBoard" resultType="int">
+   		select count(*) from hello_board
+   		<if test="keyword != null">
+            where b_title like concat('%',#{keyword},'%')
+        </if>
+    </select>
+
+    <!-- 게시판 리스트보기 -->
+    <select id="listBoard" resultType="com.myproject.domain.BoardVO">
+
+
+        select * from hello_board 
+        order by b_no DESC
+
+    </select>
+
+     <!-- 게시판 리스트보기2 -->
+    <select id="paginglistBoard" resultType="com.myproject.domain.BoardVO">
+
+
+        select * from (
+        				select b_no, b_title, b_writer, b_date, b_count
+        				from hello_board 
+        				<if test="keyword != null">
+                  			where b_title like concat('%',#{keyword},'%' )
+               			</if>
+                order by b_date desc,b_no desc) as T1
+        limit #{skip},#{amount}
+    </select>
+
+    <!-- 게시판 상세보기 -->
+    <select id="detailBoard" resultType="com.myproject.domain.BoardVO">
+            select * from hello_board where b_no = #{b_no}
+    </select>
+
+    <!-- 게시판 삭제하기 -->
+    <delete id="deleteBoard">
+        delete from hello_board where b_no = #{b_no}
+    </delete>
+
+    <!-- 게시판 수정하기 -->
+    <update id="updateBoard">
+        update hello_board set b_title=#{b_title} , b_detail = #{b_detail}, b_date = SYSDATE() where b_no = #{b_no}
+    </update>
+
+ 	<!-- 조회수 올리기 -->
+	<update id="upreviewcount">
+		update hello_board set b_count = b_count + 1 where b_no = #{b_no}
+	</update>
+
+</mapper>
