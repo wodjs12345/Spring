@@ -33,12 +33,7 @@
 			<version>${org.springframework-version}</version>
 		</dependency>
 		
-		<!-- jsp 날짜 포멧 안대넹..빼자-->
-		<dependency>
-			<groupId>net.sargue</groupId>
-			<artifactId>java-time-jsptags</artifactId>
-			<version>1.1.4</version>
-		</dependency>
+		
 				
 		<!--  >mysql-connector-java -->
 		<dependency>
