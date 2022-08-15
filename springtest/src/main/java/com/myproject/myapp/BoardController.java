@@ -154,5 +154,9 @@ public class BoardController {
     	}
     }
 
+    @RequestMapping(value="/test.do",method=RequestMethod.GET)
+    public String test() {
+    	return "/board/test";
+    }
 
 }

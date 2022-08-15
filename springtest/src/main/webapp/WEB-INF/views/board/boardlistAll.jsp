@@ -19,6 +19,8 @@
 <script type="text/javascript">
 <!--
 	$(document).ready(function() {
+		
+		
 		let moveForm = $("#moveForm");
 		$(".pageInfo a").on("click", function(e) {
 			e.preventDefault();
@@ -33,6 +35,10 @@
 			moveForm.find("input[name='pageNum']").val(1);
 			moveForm.submit();
 		});
+		
+		
+
+		
 	});
 	-->
 </script>
@@ -231,6 +237,7 @@ pageInfo_wrap a:hover {
 			</div>
 			<!-- End of Main Content -->
 
+			
 			<!-- Footer -->
 			<%@ include file="../include/footer.jsp"%>
 			<!-- End of Footer -->

@@ -9,6 +9,7 @@ import com.myproject.domain.Criteria;
 
 @Repository
 public class BoardDAOImp implements BoardDAO{
+	
 	 @Inject
 	    private SqlSession sqlSession;
 
