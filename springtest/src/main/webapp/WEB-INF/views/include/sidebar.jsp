@@ -61,6 +61,13 @@
                     <span>자유 게시판</span></a>
             </li>
 
+			<!-- Nav Item - 채팅 -->
+            <li class="nav-item active">
+                <a class="nav-link" href="/chat/chat.do">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>실시간채팅</span></a>
+            </li>
+
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
 

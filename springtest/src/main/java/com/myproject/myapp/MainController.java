@@ -27,5 +27,11 @@ public class MainController {
 	@RequestMapping("/index.do") 
 	public String index1() {
 		return "index";
+	}
+	
+	@RequestMapping("/chat/chat.do") 
+	public String chat() {
+		return "/chat/chat";
 	}	
+	
 }
